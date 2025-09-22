@@ -1,0 +1,64 @@
+ |-docs
+ | |-PRD.md
+ | |-tree.txt
+ |-next.config.ts
+ |-package.json
+ |-public
+ | |-file.svg
+ | |-globe.svg
+ | |-next.svg
+ | |-vercel.svg
+ | |-window.svg
+ |-README.md
+ |-src
+ | |-app
+ | | |-favicon.ico
+ | | |-fonts
+ | | | |-GeistMonoVF.woff
+ | | | |-GeistVF.woff
+ | | |-globals.css
+ | | |-layout.tsx
+ | | |-page.module.css
+ | | |-page.tsx
+ | |-components
+ | | |-common
+ | | | |-StarRating
+ | | | | |-StarRating.module.css
+ | | | | |-StarRating.tsx
+ | | |-layout
+ | | | |-Footer
+ | | | | |-Footer.module.css
+ | | | | |-Footer.tsx
+ | | | |-Header
+ | | | | |-Header.module.css
+ | | | | |-Header.tsx
+ | | |-sections
+ | | | |-Blog
+ | | | | |-Blog.module.css
+ | | | | |-Blog.tsx
+| | | |-Center
+ | | | | |-Center.module.css
+ | | | | |-Center.tsx
+ | | | |-Counselor
+ | | | | |-Counselor.module.css
+ | | | | |-Counselor.tsx
+ | | | |-FAQ
+ | | | | |-FAQ.module.css
+ | | | | |-FAQ.tsx
+ | | | |-Hero
+ | | | | |-Hero.module.css
+ | | | | |-Hero.tsx
+ | | | |-Location
+ | | | | |-Location.module.css
+ | | | | |-Location.tsx
+ | | | |-Reservation
+ | | | | |-Reservation.module.css
+ | | | | |-Reservation.tsx
+ | | | |-Reviews
+ | | | | |-Reviews.module.css
+ | | | | |-Reviews.tsx
+ | | | |-Services
+ | | | | |-Services.module.css
+ | | | | |-Services.tsx
+ |-tsconfig.json
+ |-yarn.lock

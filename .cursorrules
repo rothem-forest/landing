@@ -1,0 +1,17 @@
+# UI 컴포넌트 생성.
+
+css.module을 활용해서 우선적으로 생성
+
+# 패키지매니저
+
+패키지 매니저는 yarn을 사용해서 관리
+
+# 인터렉티브 UI
+
+Framer를 활용해서 인터렉티브 UI를 구현
+
+// React
+import { motion } from "framer-motion"
+
+// React Server Components
+import * as motion from "framer-motion/client"

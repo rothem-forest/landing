@@ -1,0 +1,171 @@
+.services {
+  padding: 6rem 0;
+  background-color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+}
+
+.header {
+  text-align: left;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  max-width: 600px;
+}
+
+.moreButton {
+  padding: 0.8rem 1.5rem;
+  background: none;
+  color: #666;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition-base);
+  font-size: 1.2rem;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+
+.card {
+  background: var(--color-white);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-base);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  background-color: var(--color-background);
+  transition: all 0.4s ease;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease;
+  filter: grayscale(100%);
+}
+
+.card:hover .cardImage {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+.cardContent {
+  padding: 1.5rem;
+  background: var(--color-white);
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 1024px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerWrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    gap: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .headerWrapper {
+    margin-bottom: 2rem;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .moreButton {
+    position: absolute;
+    top: 100px;
+    right: 0;
+    font-size: 1rem;
+    padding: 0;
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .imageWrapper {
+    height: 240px;
+  }
+
+  .cardContent {
+    padding: 1.25rem;
+    text-align: center;
+  }
+
+  .cardTitle {
+    font-size: 1.1rem;
+  }
+
+  .cardDescription {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,301 @@
+.main {
+  min-height: 100vh;
+  padding: 6rem 0;
+  padding-top: 8rem;
+  background-color: var(--color-background);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.content {
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 3rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.tab {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-sm);
+}
+
+.tab:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  background-color: var(--color-accent-dark);
+}
+
+.activeTab {
+  background: var(--gradient-primary);
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.questionBox {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background-color: var(--color-basic-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-accent);
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.radioLabel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-secondary-light);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.radioLabel:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-secondary);
+}
+
+.radioLabel input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radioLabel span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-secondary);
+  border-radius: 50%;
+  transition: var(--transition-base);
+}
+
+.radioLabel input[type="radio"]:checked + span::before {
+  border-color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+.radioLabel input[type="radio"]:checked + span {
+  color: var(--color-white);
+}
+
+.radioLabel span {
+  position: relative;
+  padding-left: 1.75rem;
+  color: var(--color-text);
+  font-weight: 500;
+  transition: var(--transition-base);
+}
+
+.radioLabel.checked {
+  background: var(--gradient-primary);
+}
+
+.radioLabel.checked span {
+  color: var(--color-white);
+}
+
+.submitButton {
+  margin-top: 2rem;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  color: var(--color-white);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  width: 80%;
+  max-width: 400px;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  background: var(--gradient-accent);
+  color: #fff;
+}
+
+/* 모달 스타일 */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-accent);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.modalHeader h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-text);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: var(--transition-base);
+}
+
+.closeButton:hover {
+  color: var(--color-primary);
+  transform: scale(1.1);
+}
+
+.modalBody {
+  text-align: center;
+}
+
+.resultIcon {
+  margin-bottom: 1.5rem;
+  color: var(--color-highlight);
+}
+
+.resultScore {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.resultMessage {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .main {
+    padding-top: 6rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .tab {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    text-align: center;
+  }
+
+  .options {
+    flex-direction: column;
+  }
+
+  .radioLabel {
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 3rem;
+  }
+
+  .radioLabel span::before {
+    left: -2rem;
+  }
+  .radioLabel span {
+    width: 100%;
+    text-align: center;
+    padding-left: 0;
+  }
+  .submitButton {
+    width: 100%;
+  }
+
+  .modalContent {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .modalHeader h2 {
+    font-size: 1.25rem;
+  }
+
+  .resultScore {
+    font-size: 1.1rem;
+  }
+
+  .resultMessage {
+    font-size: 1rem;
+  }
+  .questionBox {
+    padding: 1rem;
+  }
+  .questionBox h3 {
+    font-size: 1.1rem;
+  }
+}

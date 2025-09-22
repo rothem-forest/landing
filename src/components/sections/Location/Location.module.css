@@ -1,0 +1,117 @@
+.location {
+  padding: 6rem 0;
+  background-color: var(--color-white);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.mapContainer {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  height: 100%;
+}
+
+.branchList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.branchCard {
+  background-color: var(--color-background);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  transition: var(--transition-base);
+}
+
+.branchCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.branchName {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.branchInfo {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.branchInfo li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.branchInfo strong {
+  color: var(--color-cta);
+  font-weight: 600;
+}
+
+.branchInfo p {
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 968px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .mapContainer {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .location {
+    padding: 4rem 0;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .branchCard {
+    padding: 1.5rem;
+  }
+}

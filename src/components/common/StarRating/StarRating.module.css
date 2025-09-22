@@ -1,0 +1,12 @@
+.starRating {
+  display: flex;
+  gap: 4px;
+}
+
+.star {
+  stroke: #f2d479; /* Leaf Yellow */
+}
+
+.star.filled {
+  fill: #f2d479;
+}

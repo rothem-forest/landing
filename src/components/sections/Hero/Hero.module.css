@@ -1,0 +1,182 @@
+.hero {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.backgroundVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.3); /* 배경 비디오에 어두운 오버레이 추가 */
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  position: relative;
+  z-index: 1;
+  height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.content {
+  max-width: 800px;
+  position: relative;
+  z-index: 2;
+  color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title {
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  text-shadow: var(--shadow-sm);
+}
+
+.highlight {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  text-shadow: none;
+  font-weight: 700;
+}
+
+.description {
+  font-size: 1.5rem;
+  color: var(--color-white);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  text-shadow: var(--shadow-sm);
+}
+
+.ctaButton {
+  background: var(--gradient-primary);
+  color: var(--color-white);
+  border: none;
+  padding: 1.2rem 3rem;
+  border-radius: var(--radius-md);
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  font-family: var(--font-family-base);
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  background: var(--gradient-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.floatingElements {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  pointer-events: none;
+}
+
+.floatingElement {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--color-accent), var(--color-accent-dark));
+  backdrop-filter: blur(5px);
+}
+
+.floatingElement:nth-child(1) {
+  top: 20%;
+  left: 20%;
+}
+.floatingElement:nth-child(2) {
+  top: 40%;
+  right: 30%;
+}
+.floatingElement:nth-child(3) {
+  bottom: 30%;
+  left: 40%;
+}
+.floatingElement:nth-child(4) {
+  bottom: 20%;
+  right: 20%;
+}
+.floatingElement:nth-child(5) {
+  top: 50%;
+  left: 50%;
+}
+
+@media (max-width: 968px) {
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .floatingElements {
+    opacity: 0.5;
+  }
+
+  .description {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.8rem;
+  }
+
+  .description {
+    font-size: 1.125rem;
+  }
+
+  .ctaButton {
+    padding: 1rem 2.5rem;
+    font-size: 1.125rem;
+  }
+
+  .container {
+    padding: 4rem 1.5rem;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+}
