@@ -1,4 +1,6 @@
-## .env
+## .env 파일이 필요합니다
+
+.env 파일 생성 후 아래 내용을 추가해주세요.
 
 ```bash
 NEXT_PUBLIC_NAVER_MAP_CLIENT_ID=""
