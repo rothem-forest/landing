@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import * as motion from "framer-motion/client";
-import styles from "./Blog.module.css";
-import BlogModal from "./BlogModal";
-import { BlogPost } from "./types";
-import { AnimatePresence } from "framer-motion";
-import Image from "next/image";
+import { useState } from 'react';
+import * as motion from 'framer-motion/client';
+import styles from './Blog.module.css';
+import BlogModal from './BlogModal';
+import { BlogPost } from './types';
+import { AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const blogPosts: BlogPost[] = [
   {
     id: 1,
-    title: "일상 속 스트레스 관리하는 방법",
-    excerpt: "바쁜 현대 생활 속에서 스트레스를 건강하게 관리하는 실천적인 방법들을 알아봅니다.",
-    imageUrl: "/images/가족상담.jpg",
-    category: "스트레스 관리",
-    date: "2024.03.15",
-    readTime: "5분",
+    title: '일상 속 스트레스 관리하는 방법',
+    excerpt: '바쁜 현대 생활 속에서 스트레스를 건강하게 관리하는 실천적인 방법들을 알아봅니다.',
+    imageUrl: '/images/가족상담.jpg',
+    category: '스트레스 관리',
+    date: '2024.03.15',
+    readTime: '5분',
     content: `스트레스는 현대인의 일상이 되었습니다. 하지만 적절한 관리만 있다면 스트레스를 줄이고 
     건강한 삶을 영위할 수 있습니다.
 
@@ -33,30 +33,30 @@ const blogPosts: BlogPost[] = [
   },
   {
     id: 2,
-    title: "마음챙김의 시작, 호흡명상",
-    excerpt: "일상에서 쉽게 실천할 수 있는 호흡명상 방법과 그 효과에 대해 알아봅니다.",
-    imageUrl: "/images/가족상담.jpg",
-    category: "마음챙김",
-    date: "2024.03.10",
-    readTime: "3분",
+    title: '마음챙김의 시작, 호흡명상',
+    excerpt: '일상에서 쉽게 실천할 수 있는 호흡명상 방법과 그 효과에 대해 알아봅니다.',
+    imageUrl: '/images/가족상담.jpg',
+    category: '마음챙김',
+    date: '2024.03.10',
+    readTime: '3분',
   },
   {
     id: 3,
-    title: "건강한 부부관계를 위한 대화법",
-    excerpt: "서로를 이해하고 존중하는 대화를 통해 더 깊은 관계를 만드는 방법을 소개합니다.",
-    imageUrl: "/images/가족상담.jpg",
-    category: "관계",
-    date: "2024.03.05",
-    readTime: "4분",
+    title: '건강한 부부관계를 위한 대화법',
+    excerpt: '서로를 이해하고 존중하는 대화를 통해 더 깊은 관계를 만드는 방법을 소개합니다.',
+    imageUrl: '/images/가족상담.jpg',
+    category: '관계',
+    date: '2024.03.05',
+    readTime: '4분',
   },
   {
     id: 4,
-    title: "자존감 회복을 위한 일상 습관",
-    excerpt: "작은 실천으로 시작하는 자존감 회복 여정, 함께 시작해보세요.",
-    imageUrl: "/images/가족상담.jpg",
-    category: "자기계발",
-    date: "2024.03.01",
-    readTime: "6분",
+    title: '자존감 회복을 위한 일상 습관',
+    excerpt: '작은 실천으로 시작하는 자존감 회복 여정, 함께 시작해보세요.',
+    imageUrl: '/images/가족상담.jpg',
+    category: '자기계발',
+    date: '2024.03.01',
+    readTime: '6분',
   },
 ];
 
@@ -120,7 +120,11 @@ const Blog = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <motion.button className={styles.viewAllButton} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <motion.button
+            className={styles.viewAllButton}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             전체 글 보기
           </motion.button>
         </motion.div>

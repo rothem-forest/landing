@@ -92,7 +92,7 @@
   border-color: var(--color-secondary);
 }
 
-.radioLabel input[type="radio"] {
+.radioLabel input[type='radio'] {
   position: absolute;
   opacity: 0;
   width: 0;
@@ -100,7 +100,7 @@
 }
 
 .radioLabel span::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 50%;
@@ -112,12 +112,12 @@
   transition: var(--transition-base);
 }
 
-.radioLabel input[type="radio"]:checked + span::before {
+.radioLabel input[type='radio']:checked + span::before {
   border-color: var(--color-white);
   background-color: var(--color-primary);
 }
 
-.radioLabel input[type="radio"]:checked + span {
+.radioLabel input[type='radio']:checked + span {
   color: var(--color-white);
 }
 

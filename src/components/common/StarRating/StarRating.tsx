@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import styles from "./StarRating.module.css";
+import styles from './StarRating.module.css';
 
 interface StarRatingProps {
   rating: number;
@@ -12,7 +12,7 @@ const StarRating = ({ rating }: StarRatingProps) => {
       {[1, 2, 3, 4, 5].map((star) => (
         <svg
           key={star}
-          className={`${styles.star} ${star <= rating ? styles.filled : ""}`}
+          className={`${styles.star} ${star <= rating ? styles.filled : ''}`}
           width="24"
           height="24"
           viewBox="0 0 24 24"

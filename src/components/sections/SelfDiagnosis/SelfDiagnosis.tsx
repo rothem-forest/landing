@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
 // SelfDiagnosis.tsx
-import * as motion from "framer-motion/client";
-import styles from "./SelfDiagnosis.module.css";
-import { useRouter } from "next/navigation";
+import * as motion from 'framer-motion/client';
+import styles from './SelfDiagnosis.module.css';
+import { useRouter } from 'next/navigation';
 // import Image from "next/image";
 
 const SelfDiagnosis = () => {
   const router = useRouter();
 
   const handleStartDiagnosis = () => {
-    router.push("/selfDiagnosis");
+    router.push('/selfDiagnosis');
   };
 
   return (

@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { useState } from "react";
-import styles from "./page.module.css";
-import { supabase } from "@/lib/supabase";
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import styles from './page.module.css';
+import { supabase } from '@/lib/supabase';
 
 interface Contact {
   name: string;
@@ -23,31 +23,31 @@ interface Contact {
 
 export default function ReservationPage() {
   const [formData, setFormData] = useState<Contact>({
-    name: "",
-    age: "",
-    gender: "",
-    maritalStatus: "",
-    occupation: "",
-    religion: "",
-    referralSource: "",
-    phone: "",
-    email: "",
+    name: '',
+    age: '',
+    gender: '',
+    maritalStatus: '',
+    occupation: '',
+    religion: '',
+    referralSource: '',
+    phone: '',
+    email: '',
     hasPreviousCounseling: false,
-    previousCounselingDetails: "",
-    preferredDate: "",
-    message: "",
+    previousCounselingDetails: '',
+    preferredDate: '',
+    message: '',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const counselingSteps = [
-    { step: "01", title: "상담예약" },
-    { step: "02", title: "상담료 납부" },
-    { step: "03", title: "초기상담" },
-    { step: "04", title: "상담 및 심리검사" },
-    { step: "05", title: "상담진행" },
-    { step: "06", title: "상담종료" },
-    { step: "07", title: "추후관리" },
+    { step: '01', title: '상담예약' },
+    { step: '02', title: '상담료 납부' },
+    { step: '03', title: '초기상담' },
+    { step: '04', title: '상담 및 심리검사' },
+    { step: '05', title: '상담진행' },
+    { step: '06', title: '상담종료' },
+    { step: '07', title: '추후관리' },
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -56,10 +56,10 @@ export default function ReservationPage() {
 
     try {
       // API 서버로 데이터 전송
-      const response = await fetch("/api/contact", {
-        method: "POST",
+      const response = await fetch('/api/contact', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
@@ -67,7 +67,7 @@ export default function ReservationPage() {
       const data = await response.json();
 
       // Supabase에 데이터 저장
-      const { error } = await supabase.from("contacts").insert([
+      const { error } = await supabase.from('contacts').insert([
         {
           name: formData.name,
           age: formData.age,
@@ -89,38 +89,40 @@ export default function ReservationPage() {
       if (error) throw error;
 
       if (response.ok) {
-        alert("예약이 성공적으로 접수되었습니다.");
+        alert('예약이 성공적으로 접수되었습니다.');
         // 폼 초기화
         setFormData({
-          name: "",
-          age: "",
-          gender: "",
-          maritalStatus: "",
-          occupation: "",
-          religion: "",
-          referralSource: "",
-          phone: "",
-          email: "",
+          name: '',
+          age: '',
+          gender: '',
+          maritalStatus: '',
+          occupation: '',
+          religion: '',
+          referralSource: '',
+          phone: '',
+          email: '',
           hasPreviousCounseling: false,
-          previousCounselingDetails: "",
-          preferredDate: "",
-          message: "",
+          previousCounselingDetails: '',
+          preferredDate: '',
+          message: '',
         });
       } else {
         throw new Error(data.message);
       }
     } catch (error) {
       console.log(error);
-      alert("예약 신청 중 오류가 발생했습니다. 다시 시도해주세요.");
-      console.error("예약 신청 오류:", error);
+      alert('예약 신청 중 오류가 발생했습니다. 다시 시도해주세요.');
+      console.error('예약 신청 오류:', error);
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) => {
     const { name, value, type } = e.target;
-    const newValue = type === "checkbox" ? (e.target as HTMLInputElement).checked : value;
+    const newValue = type === 'checkbox' ? (e.target as HTMLInputElement).checked : value;
     setFormData((prev) => ({
       ...prev,
       [name]: newValue,
@@ -188,7 +190,13 @@ export default function ReservationPage() {
                 />
               </div>
               <div className={styles.formGroup}>
-                <select name="gender" value={formData.gender} onChange={handleChange} className={styles.input} required>
+                <select
+                  name="gender"
+                  value={formData.gender}
+                  onChange={handleChange}
+                  className={styles.input}
+                  required
+                >
                   <option value="">성별 선택</option>
                   <option value="남성">남성</option>
                   <option value="여성">여성</option>
@@ -338,7 +346,7 @@ export default function ReservationPage() {
               whileTap={{ scale: 0.98 }}
               disabled={isSubmitting}
             >
-              {isSubmitting ? "예약 신청 중..." : "예약하기"}
+              {isSubmitting ? '예약 신청 중...' : '예약하기'}
             </motion.button>
           </form>
         </motion.div>

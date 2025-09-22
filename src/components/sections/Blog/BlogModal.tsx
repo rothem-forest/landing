@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import styles from "./BlogModal.module.css";
-import { BlogPost } from "./types";
+import { motion } from 'framer-motion';
+import styles from './BlogModal.module.css';
+import { BlogPost } from './types';
 
 interface BlogModalProps {
   post: BlogPost | null;

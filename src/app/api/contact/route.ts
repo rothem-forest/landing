@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 interface ReservationRequest {
   name: string;
@@ -18,12 +18,12 @@ interface ReservationRequest {
 }
 
 export async function GET() {
-  console.log("GET 요청");
-  return NextResponse.json({ message: "Hello World" });
+  console.log('GET 요청');
+  return NextResponse.json({ message: 'Hello World' });
 }
 
 export async function POST(req: Request) {
-  console.log("POST 요청");
+  console.log('POST 요청');
   const body = (await req.json()) as ReservationRequest;
   const {
     name,
@@ -43,7 +43,7 @@ export async function POST(req: Request) {
 
   // Nodemailer 설정
   const transporter = nodemailer.createTransport({
-    service: "Gmail",
+    service: 'Gmail',
     auth: {
       user: process.env.EMAIL,
       pass: process.env.EMAIL_PASSWORD,
@@ -90,7 +90,7 @@ export async function POST(req: Request) {
             </div>
             <div style="margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 4px;">
               <span style="font-weight: bold; color: #2d6a4f; margin-right: 10px;">이전 상담 경험:</span> ${
-                hasPreviousCounseling ? "있음" : "없음"
+                hasPreviousCounseling ? '있음' : '없음'
               }
             </div>
             ${
@@ -100,7 +100,7 @@ export async function POST(req: Request) {
               <span style="font-weight: bold; color: #2d6a4f; margin-right: 10px;">상세 내용:</span> ${previousCounselingDetails}
             </div>
             `
-                : ""
+                : ''
             }
             <div style="margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 4px;">
               <span style="font-weight: bold; color: #2d6a4f; margin-right: 10px;">선호 날짜:</span> ${preferredDate}
@@ -120,14 +120,20 @@ export async function POST(req: Request) {
     // 이메일 발송
     await transporter.sendMail({
       from: process.env.EMAIL,
-      to: "ckdwns9121@naver.com",
+      to: 'ckdwns9121@naver.com',
       subject: `[상담 예약] ${name}님의 상담 예약 요청`,
       html: emailContent,
     });
 
-    return NextResponse.json({ success: true, message: "상담 예약 신청이 성공적으로 접수되었습니다!" });
+    return NextResponse.json({
+      success: true,
+      message: '상담 예약 신청이 성공적으로 접수되었습니다!',
+    });
   } catch (error) {
-    console.error("이메일 전송 오류:", error);
-    return NextResponse.json({ success: false, message: "이메일 전송 중 오류가 발생했습니다." }, { status: 500 });
+    console.error('이메일 전송 오류:', error);
+    return NextResponse.json(
+      { success: false, message: '이메일 전송 중 오류가 발생했습니다.' },
+      { status: 500 },
+    );
   }
 }

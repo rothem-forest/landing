@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import * as motion from "framer-motion/client";
-import Image from "next/image";
-import styles from "./Center.module.css";
-import { useState, useEffect } from "react";
+import * as motion from 'framer-motion/client';
+import Image from 'next/image';
+import styles from './Center.module.css';
+import { useState, useEffect } from 'react';
 
 interface GalleryImage {
   src: string;
@@ -13,29 +13,29 @@ interface GalleryImage {
 
 const galleryImages: GalleryImage[] = [
   {
-    src: "https://modo-phinf.pstatic.net/20230126_198/1674699238131jfKiY_PNG/mosa7Bk9Cx.png?type=f353_353",
-    alt: "상담실 입구",
-    title: "상담실 입구",
+    src: 'https://modo-phinf.pstatic.net/20230126_198/1674699238131jfKiY_PNG/mosa7Bk9Cx.png?type=f353_353',
+    alt: '상담실 입구',
+    title: '상담실 입구',
   },
   {
-    src: "https://modo-phinf.pstatic.net/20230126_36/1674699239372J142M_PNG/mosaXOw3lU.png?type=f353_353",
-    alt: "상담실 내부",
-    title: "상담실 내부",
+    src: 'https://modo-phinf.pstatic.net/20230126_36/1674699239372J142M_PNG/mosaXOw3lU.png?type=f353_353',
+    alt: '상담실 내부',
+    title: '상담실 내부',
   },
   {
-    src: "https://modo-phinf.pstatic.net/20230126_280/16746992422848hMvn_PNG/mosaHY6h2k.png?type=f353_353",
-    alt: "상담실 공간",
-    title: "상담실 공간",
+    src: 'https://modo-phinf.pstatic.net/20230126_280/16746992422848hMvn_PNG/mosaHY6h2k.png?type=f353_353',
+    alt: '상담실 공간',
+    title: '상담실 공간',
   },
   {
-    src: "https://modo-phinf.pstatic.net/20230126_280/16746992422848hMvn_PNG/mosaHY6h2k.png?type=f353_353",
-    alt: "상담실 공간",
-    title: "상담실 공간2",
+    src: 'https://modo-phinf.pstatic.net/20230126_280/16746992422848hMvn_PNG/mosaHY6h2k.png?type=f353_353',
+    alt: '상담실 공간',
+    title: '상담실 공간2',
   },
   {
-    src: "https://modo-phinf.pstatic.net/20230126_280/16746992422848hMvn_PNG/mosaHY6h2k.png?type=f353_353",
-    alt: "상담실 공간",
-    title: "상담실 공간3",
+    src: 'https://modo-phinf.pstatic.net/20230126_280/16746992422848hMvn_PNG/mosaHY6h2k.png?type=f353_353',
+    alt: '상담실 공간',
+    title: '상담실 공간3',
   },
 ];
 
@@ -44,16 +44,16 @@ const Center = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === 'undefined') return;
 
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
 
     checkMobile();
-    window.addEventListener("resize", checkMobile);
+    window.addEventListener('resize', checkMobile);
 
-    return () => window.removeEventListener("resize", checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const handlePrev = () => {
@@ -138,7 +138,7 @@ const Center = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <motion.button
-              className={`${styles.controlButton} ${currentIndex === 0 ? styles.disabled : ""}`}
+              className={`${styles.controlButton} ${currentIndex === 0 ? styles.disabled : ''}`}
               onClick={handlePrev}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -148,12 +148,16 @@ const Center = () => {
             </motion.button>
             <motion.button
               className={`${styles.controlButton} ${
-                currentIndex === (isMobile ? galleryImages.length - 1 : galleryImages.length - 3) ? styles.disabled : ""
+                currentIndex === (isMobile ? galleryImages.length - 1 : galleryImages.length - 3)
+                  ? styles.disabled
+                  : ''
               }`}
               onClick={handleNext}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              disabled={currentIndex === (isMobile ? galleryImages.length - 1 : galleryImages.length - 3)}
+              disabled={
+                currentIndex === (isMobile ? galleryImages.length - 1 : galleryImages.length - 3)
+              }
             >
               →
             </motion.button>

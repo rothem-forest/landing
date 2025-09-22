@@ -3,8 +3,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "modo-phinf.pstatic.net",
+        protocol: 'https',
+        hostname: 'modo-phinf.pstatic.net',
       },
     ],
   },

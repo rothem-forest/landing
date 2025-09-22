@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import styles from "./page.module.css";
-import { FaRegSmile, FaRegMeh, FaRegFrown, FaRegDizzy } from "react-icons/fa";
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import styles from './page.module.css';
+import { FaRegSmile, FaRegMeh, FaRegFrown, FaRegDizzy } from 'react-icons/fa';
 
 export default function SelfDiagnosisPage() {
-  const [activeTab, setActiveTab] = useState("anxiety");
+  const [activeTab, setActiveTab] = useState('anxiety');
   const [answers, setAnswers] = useState<number[]>(new Array(21).fill(-1)); // -1로 초기화하여 아무것도 선택되지 않은 상태로 시작
   const [, setShowResult] = useState(false);
   const [totalScore, setTotalScore] = useState(0);
   const [showModal, setShowModal] = useState(false);
 
   const tabs = [
-    { id: "anxiety", label: "불안증 자가진단" },
-    { id: "depression", label: "우울증 자가진단" },
-    { id: "adhd", label: "ADHD 자가진단" },
-    { id: "social", label: "사회성 자가진단" },
+    { id: 'anxiety', label: '불안증 자가진단' },
+    { id: 'depression', label: '우울증 자가진단' },
+    { id: 'adhd', label: 'ADHD 자가진단' },
+    { id: 'social', label: '사회성 자가진단' },
   ];
 
   const handleAnswerChange = (questionIndex: number, score: number) => {
@@ -28,15 +28,15 @@ export default function SelfDiagnosisPage() {
   const calculateResult = () => {
     // 현재 활성화된 탭에 따라 필요한 답변 수 결정
     let requiredAnswers = 21; // 기본값 (불안증)
-    if (activeTab === "depression") requiredAnswers = 5;
-    if (activeTab === "adhd") requiredAnswers = 5;
-    if (activeTab === "social") requiredAnswers = 5;
+    if (activeTab === 'depression') requiredAnswers = 5;
+    if (activeTab === 'adhd') requiredAnswers = 5;
+    if (activeTab === 'social') requiredAnswers = 5;
 
     // 답변되지 않은 문항이 있는지 확인
     const unansweredQuestions = answers.slice(0, requiredAnswers).filter((answer) => answer === -1);
 
     if (unansweredQuestions.length > 0) {
-      alert("모든 문항에 답변해주세요.");
+      alert('모든 문항에 답변해주세요.');
       return;
     }
 
@@ -44,7 +44,7 @@ export default function SelfDiagnosisPage() {
     let sum = 0;
     const relevantAnswers = answers.slice(0, requiredAnswers);
 
-    if (activeTab === "anxiety") {
+    if (activeTab === 'anxiety') {
       sum = relevantAnswers.reduce((acc, curr) => acc + (curr === -1 ? 0 : curr), 0);
     } else {
       // 5문항 테스트의 경우 점수를 그대로 사용 (0-15점 범위)
@@ -60,13 +60,13 @@ export default function SelfDiagnosisPage() {
     // 각 테스트별 문항 수에 따른 최대 점수 계산
     const getMaxScore = () => {
       switch (activeTab) {
-        case "anxiety":
+        case 'anxiety':
           return anxietyQuestions.length * 3;
-        case "depression":
+        case 'depression':
           return depressionQuestions.length * 3;
-        case "adhd":
+        case 'adhd':
           return adhdQuestions.length * 3;
-        case "social":
+        case 'social':
           return socialQuestions.length * 3;
         default:
           return 0;
@@ -88,13 +88,13 @@ export default function SelfDiagnosisPage() {
     // 각 테스트별 문항 수에 따른 최대 점수 계산
     const getMaxScore = () => {
       switch (activeTab) {
-        case "anxiety":
+        case 'anxiety':
           return anxietyQuestions.length * 3;
-        case "depression":
+        case 'depression':
           return depressionQuestions.length * 3;
-        case "adhd":
+        case 'adhd':
           return adhdQuestions.length * 3;
-        case "social":
+        case 'social':
           return socialQuestions.length * 3;
         default:
           return 0;
@@ -106,58 +106,58 @@ export default function SelfDiagnosisPage() {
     const mildThreshold = maxScore * 0.5; // 50%
     const moderateThreshold = maxScore * 0.75; // 75%
 
-    if (score <= normalThreshold) return "정상 범위입니다.";
-    if (score <= mildThreshold) return "경미한 수준입니다. 전문가와 상담을 고려해보세요.";
-    if (score <= moderateThreshold) return "중등도 수준입니다. 전문가의 상담이 필요합니다.";
-    return "심각한 수준입니다. 즉시 전문가의 도움을 받으시기 바랍니다.";
+    if (score <= normalThreshold) return '정상 범위입니다.';
+    if (score <= mildThreshold) return '경미한 수준입니다. 전문가와 상담을 고려해보세요.';
+    if (score <= moderateThreshold) return '중등도 수준입니다. 전문가의 상담이 필요합니다.';
+    return '심각한 수준입니다. 즉시 전문가의 도움을 받으시기 바랍니다.';
   };
 
   const anxietyQuestions = [
-    "가끔씩 몸이 저리고 쑤시며 감각이 마비된 느낌을 받는다.",
-    "흥분된 느낌을 받는다.",
-    "가끔씩 다리가 떨리곤 한다.",
-    "편안하게 쉴 수가 없다.",
-    "매우 나쁜 일이 일어날 것 같은 두려움을 느낀다.",
-    "어지러움(현기증)을 느낀다.",
-    "가끔씩 심장이 두근거리고 빨리 뛴다.",
-    "침착하지 못하다.",
-    "자주 겁을 먹고 무서움을 느낀다.",
-    "신경이 과민되어 왔다.",
-    "가끔씩 숨이 막히고 질식할 것 같다.",
-    "자주 손이 떨린다.",
-    "안절부절 못해 한다.",
-    "미칠 것 같은 두려움을 느낀다.",
-    "가끔씩 숨쉬기 곤란할 때가 있다.",
-    "죽을 것 같은 두려움을 느낀다.",
-    "불안한 상태에 있다.",
-    "자주 소화가 안 되고 뱃속이 불편하다.",
-    "가끔씩 기절할 것 같다.",
-    "자주 얼굴이 붉어지곤 한다.",
-    "땀을 많이 흘린다.(더위로 인한 것은 제외)",
+    '가끔씩 몸이 저리고 쑤시며 감각이 마비된 느낌을 받는다.',
+    '흥분된 느낌을 받는다.',
+    '가끔씩 다리가 떨리곤 한다.',
+    '편안하게 쉴 수가 없다.',
+    '매우 나쁜 일이 일어날 것 같은 두려움을 느낀다.',
+    '어지러움(현기증)을 느낀다.',
+    '가끔씩 심장이 두근거리고 빨리 뛴다.',
+    '침착하지 못하다.',
+    '자주 겁을 먹고 무서움을 느낀다.',
+    '신경이 과민되어 왔다.',
+    '가끔씩 숨이 막히고 질식할 것 같다.',
+    '자주 손이 떨린다.',
+    '안절부절 못해 한다.',
+    '미칠 것 같은 두려움을 느낀다.',
+    '가끔씩 숨쉬기 곤란할 때가 있다.',
+    '죽을 것 같은 두려움을 느낀다.',
+    '불안한 상태에 있다.',
+    '자주 소화가 안 되고 뱃속이 불편하다.',
+    '가끔씩 기절할 것 같다.',
+    '자주 얼굴이 붉어지곤 한다.',
+    '땀을 많이 흘린다.(더위로 인한 것은 제외)',
   ];
 
   const depressionQuestions = [
-    "일상적인 활동에 흥미를 잃었다.",
-    "우울하거나 절망적인 기분이 든다.",
-    "잠들기 어렵거나 너무 많이 잔다.",
-    "피곤하고 기운이 없다.",
-    "식욕이 없거나 과식을 한다.",
+    '일상적인 활동에 흥미를 잃었다.',
+    '우울하거나 절망적인 기분이 든다.',
+    '잠들기 어렵거나 너무 많이 잔다.',
+    '피곤하고 기운이 없다.',
+    '식욕이 없거나 과식을 한다.',
   ];
 
   const adhdQuestions = [
-    "일을 끝내기 전에 다른 일로 넘어간다.",
-    "집중하기 어렵다.",
-    "가만히 앉아있기 힘들다.",
-    "물건을 자주 잃어버린다.",
-    "충동적으로 행동한다.",
+    '일을 끝내기 전에 다른 일로 넘어간다.',
+    '집중하기 어렵다.',
+    '가만히 앉아있기 힘들다.',
+    '물건을 자주 잃어버린다.',
+    '충동적으로 행동한다.',
   ];
 
   const socialQuestions = [
-    "다른 사람들과 어울리는 것이 불편하다.",
-    "새로운 사람을 만나는 것이 두렵다.",
-    "대화를 시작하거나 이어가기 어렵다.",
-    "사회적 상황에서 불안을 느낀다.",
-    "다른 사람들의 시선이 신경 쓰인다.",
+    '다른 사람들과 어울리는 것이 불편하다.',
+    '새로운 사람을 만나는 것이 두렵다.',
+    '대화를 시작하거나 이어가기 어렵다.',
+    '사회적 상황에서 불안을 느낀다.',
+    '다른 사람들의 시선이 신경 쓰인다.',
   ];
 
   const renderQuestions = (questions: string[]) => {
@@ -171,18 +171,23 @@ export default function SelfDiagnosisPage() {
       >
         <h3>{`${index + 1}. ${question}`}</h3>
         <div className={styles.options}>
-          {["전혀 느끼지 않았다.", "조금 느꼈다.", "상당히 느꼈다.", "심하게 느꼈다."].map((option, score) => (
-            <label key={score} className={`${styles.radioLabel} ${answers[index] === score ? styles.checked : ""}`}>
-              <input
-                type="radio"
-                name={`question-${index}`}
-                value={score}
-                checked={answers[index] === score}
-                onChange={() => handleAnswerChange(index, score)}
-              />
-              <span>{option}</span>
-            </label>
-          ))}
+          {['전혀 느끼지 않았다.', '조금 느꼈다.', '상당히 느꼈다.', '심하게 느꼈다.'].map(
+            (option, score) => (
+              <label
+                key={score}
+                className={`${styles.radioLabel} ${answers[index] === score ? styles.checked : ''}`}
+              >
+                <input
+                  type="radio"
+                  name={`question-${index}`}
+                  value={score}
+                  checked={answers[index] === score}
+                  onChange={() => handleAnswerChange(index, score)}
+                />
+                <span>{option}</span>
+              </label>
+            ),
+          )}
         </div>
       </motion.div>
     ));
@@ -222,7 +227,7 @@ export default function SelfDiagnosisPage() {
 
   const renderContent = () => {
     switch (activeTab) {
-      case "anxiety":
+      case 'anxiety':
         return (
           <motion.div
             key="anxiety"
@@ -245,7 +250,7 @@ export default function SelfDiagnosisPage() {
             </AnimatePresence>
           </motion.div>
         );
-      case "depression":
+      case 'depression':
         return (
           <motion.div
             key="depression"
@@ -268,7 +273,7 @@ export default function SelfDiagnosisPage() {
             </AnimatePresence>
           </motion.div>
         );
-      case "adhd":
+      case 'adhd':
         return (
           <motion.div
             key="adhd"
@@ -291,7 +296,7 @@ export default function SelfDiagnosisPage() {
             </AnimatePresence>
           </motion.div>
         );
-      case "social":
+      case 'social':
         return (
           <motion.div
             key="social"
@@ -333,7 +338,7 @@ export default function SelfDiagnosisPage() {
             {tabs.map((tab) => (
               <motion.button
                 key={tab.id}
-                className={`${styles.tab} ${activeTab === tab.id ? styles.activeTab : ""}`}
+                className={`${styles.tab} ${activeTab === tab.id ? styles.activeTab : ''}`}
                 onClick={() => {
                   setActiveTab(tab.id);
                   setAnswers(new Array(21).fill(-1)); // 탭 변경 시에도 -1로 초기화

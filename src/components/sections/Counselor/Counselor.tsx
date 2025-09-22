@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import * as motion from "framer-motion/client";
-import styles from "./Counselor.module.css";
-import Image from "next/image";
+import * as motion from 'framer-motion/client';
+import styles from './Counselor.module.css';
+import Image from 'next/image';
 
 // const careerHistory = [
 //   { year: "2024", description: "로뎀숲 심리연구소 대표" },
@@ -23,7 +23,7 @@ const Counselor = () => {
               className={styles.imageWrapper}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, margin: "-50px" }}
+              viewport={{ once: false, margin: '-50px' }}
               transition={{ duration: 0.6 }}
             >
               <Image
@@ -55,16 +55,21 @@ const Counselor = () => {
             className={styles.textContent}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-50px" }}
+            viewport={{ once: false, margin: '-50px' }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <h2 className={styles.title}>전문 심리상담사 소개</h2>
             <p className={styles.description}>
-              저희는 10년 이상의 경험을 가진 전문 심리상담사들로 구성되어 있습니다. 우울증, 불안장애, 트라우마 등 다양한
-              심리적 어려움을 겪고 계신 분들께 전문적이고 따뜻한 상담을 제공해 드립니다. 내담자 한 분 한 분의 이야기에
-              귀 기울이며, 함께 치유의 여정을 걸어가겠습니다.
+              저희는 10년 이상의 경험을 가진 전문 심리상담사들로 구성되어 있습니다. 우울증,
+              불안장애, 트라우마 등 다양한 심리적 어려움을 겪고 계신 분들께 전문적이고 따뜻한 상담을
+              제공해 드립니다. 내담자 한 분 한 분의 이야기에 귀 기울이며, 함께 치유의 여정을
+              걸어가겠습니다.
             </p>
-            <motion.button className={styles.readMoreButton} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.button
+              className={styles.readMoreButton}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               상담사 프로필 보기
             </motion.button>
           </motion.div>

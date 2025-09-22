@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import * as motion from "framer-motion/client";
-import { useEffect, useState } from "react";
-import styles from "./Hero.module.css";
-import { useRouter } from "next/navigation";
+import * as motion from 'framer-motion/client';
+import { useEffect, useState } from 'react';
+import styles from './Hero.module.css';
+import { useRouter } from 'next/navigation';
 
 const Hero = () => {
   const router = useRouter();
@@ -11,7 +11,7 @@ const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === 'undefined') return;
 
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -21,17 +21,17 @@ const Hero = () => {
       setScrollY(window.scrollY);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   const calculateMovement = (factor: number = 1) => {
-    if (typeof window === "undefined") return { x: 0, y: 0 };
+    if (typeof window === 'undefined') return { x: 0, y: 0 };
     return {
       x: (mousePosition.x - window.innerWidth / 2) * 0.02 * factor,
       y: (mousePosition.y - window.innerHeight / 2) * 0.02 * factor,
@@ -39,7 +39,7 @@ const Hero = () => {
   };
 
   const handleReservation = () => {
-    router.push("/reservation");
+    router.push('/reservation');
   };
 
   return (
@@ -91,7 +91,7 @@ const Hero = () => {
 
           <motion.button
             className={styles.ctaButton}
-            whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
+            whileHover={{ scale: 1.05, boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

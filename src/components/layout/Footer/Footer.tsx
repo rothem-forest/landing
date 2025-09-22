@@ -1,5 +1,5 @@
-import Link from "next/link";
-import styles from "./Footer.module.css";
+import Link from 'next/link';
+import styles from './Footer.module.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -78,7 +78,9 @@ const Footer = () => {
         </div>
 
         <div className={styles.bottom}>
-          <p className={styles.copyright}>© {currentYear} 로뎀숲 심리상담연구소. All rights reserved.</p>
+          <p className={styles.copyright}>
+            © {currentYear} 로뎀숲 심리상담연구소. All rights reserved.
+          </p>
           <div className={styles.legal}>
             <Link href="/privacy">개인정보처리방침</Link>
             <span className={styles.divider}>|</span>
